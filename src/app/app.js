@@ -13,6 +13,7 @@ class App extends Component{
 
     addTask(e){
         console.log(this.state);
+        console.log('Connected 11.');
         e.preventDefault();
         e.stopPropagation();
     }
@@ -34,7 +35,7 @@ class App extends Component{
                         <div className="col s5">
                             <div className="card">
                                 <div className="card-content">
-                                    <form onSubmit="{this.addTask}">
+                                    <form onSubmit={this.addTask}>
                                         <div className="row">
                                             <div className="input-field col s12">
                                                 <input type="text" placeholder="Task Title"/>
@@ -50,7 +51,7 @@ class App extends Component{
                                         <div className="row">
                                             <div className="col s12">
                                                 <button type="submit" className="btn waves-effect waves-light light-blue darken-4">
-                                                    Send<i class="material-icons right">send</i>
+                                                    Send<i className="material-icons right">send</i>
                                                 </button>
                                             </div>
                                         </div>
