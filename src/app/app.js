@@ -8,14 +8,21 @@ class App extends Component{
             title: '',
             description: ''
         };
+        this.handleChange = this.addTask.bind(this);
         this.addTask = this.addTask.bind(this);
     }
 
     addTask(e){
         console.log(this.state);
-        console.log('Connected 11.');
         e.preventDefault();
         e.stopPropagation();
+    }
+
+    handleChange(e){
+       const {name, value} = e.target;
+       this.setState({
+            [name]: value
+       });
     }
 
 
@@ -38,13 +45,13 @@ class App extends Component{
                                     <form onSubmit={this.addTask}>
                                         <div className="row">
                                             <div className="input-field col s12">
-                                                <input type="text" placeholder="Task Title"/>
+                                                <input name="title" onChange={this.handleChange} type="text" placeholder="Task Title"/>
                                             </div>
                                         </div>
 
                                         <div className="row">
                                             <div className="input-field col s12">
-                                               <textarea placeholder="Description" className="materialize-textarea"></textarea>
+                                               <textarea name="description" onChange={this.handleChange} placeholder="Description" className="materialize-textarea"></textarea>
                                             </div>
                                         </div>
 
