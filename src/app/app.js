@@ -8,12 +8,22 @@ class App extends Component{
             title: '',
             description: ''
         };
-        this.handleChange = this.addTask.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.addTask = this.addTask.bind(this);
     }
 
     addTask(e){
-        console.log(this.state);
+        fetch('/api/task', {
+            method: 'POST',
+            body: JSON.stringify(this.state),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+            .then( res => res.json())
+            .then( data => console.log(data))
+            .catch(err => console.error(err));
         e.preventDefault();
         e.stopPropagation();
     }
