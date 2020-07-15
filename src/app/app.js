@@ -91,8 +91,10 @@ class App extends Component{
             .then(data => {
                 console.log(data)
                 this.setState({
-                    title: 
-                })
+                    title: data.title,
+                    description: data.description,
+                    id: data.id 
+                });
             });
     }
     
